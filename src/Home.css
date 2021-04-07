@@ -1,0 +1,55 @@
+.home{
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .home .h-banner-div{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+  }
+  .home .h-banner-div .home-banner1{ 
+    width: 100%;
+    z-index: -1;
+  }
+  .home-banner2{
+    width: 100%;
+    min-height: 200px;
+  }
+  .home-banner3{
+    min-height: 200px;
+    width: 100%;
+  }
+  .home-banner4{
+    min-height: 200px;
+    width: 100%;
+  }
+  .products-list{
+      justify-content: space-evenly;
+      margin-top: -100px;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      overflow: hidden;
+  }
+  @media screen and (max-height:650px) and (min-width:670px){
+  .home .h-banner-div .home-banner1{ 
+    margin-top: -80px;
+  }
+  }
+  @media screen and (min-height:900px){
+    .home-banner2{
+      width: 100%;
+      min-height: 400px;
+    }
+    .home-banner3{
+      min-height: 400px;
+      width: 100%;
+    }
+    .home-banner4{
+      min-height: 400px;
+      width: 100%;
+    }
+  }
