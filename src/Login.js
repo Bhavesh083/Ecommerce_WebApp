@@ -1,37 +1,47 @@
 import React,{useState} from 'react';
 import {useForm} from 'react-hook-form';
-import './Login.css';
-
-function Login() {
-
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';  
+import { logAdd } from './actions/loginAction';
+import './Login.css'; 
+ 
+function Login() { 
+ 
   const [peye, setPeye] = useState(false);
-  const [cpeye, setCpeye] = useState(false);
+  const [cpeye, setCpeye] = useState(false); 
+  const [login, setLogin] = useState(true);
 
-  const {register,handleSubmit,watch, formState:{errors}} = useForm();
+  const userDet = useSelector(state => state.loginReducer.user);  
+  const dispatch = useDispatch();                       
 
-  const cp = watch("password",'');
+  const {register,handleSubmit,watch, formState:{errors}} = useForm({reValidateMode:'onChange'});
+  
+  const cp = watch("password",'');             
 
   const changePeye = () =>{
     setPeye(!peye);
   }
-  const changeCpeye = () =>{
+  const changeCpeye = () =>{    
     setCpeye(!cpeye);
   } 
-
+  const changeLogin = () =>{
+    setLogin(!login); 
+  } 
   const onSubmit = (data) => {
-      console.log(data);
-  }
+    dispatch(logAdd(data.fullname,data.email,data.password));
+    setLogin(!login); 
+  } 
 
   return (
-    <div className='sect-main-div'>
+    <div className='sect-main-div'> 
       <div className='leftrrow'>
          <img className='leftrrowimg' src='https://img.freepik.com/free-psd/teal-color-headphone-brand-product-social-media-post-banner_154386-100.jpg?size=626&ext=jpg&ga=GA1.2.1719178491.1616889600' />
       </div>
-      <div className='bgg-form'>  
-         <form className='formfff' onSubmit={handleSubmit(onSubmit)} >
+      <div className='bgg-form'>   
+       {login?<form className='formfff' onSubmit={handleSubmit(onSubmit)} >
           
-              <label>Your Full Name</label>
-              <input placeholder='Enter Your Full Name' type='text' {...register('fullname',{required:true})}  />
+              <label>Your Full Name</label> 
+              <input   placeholder='Enter Your Full Name' type='text' {...register('fullname',{required:true})}  />
               {errors.fullname && <p className='error'>
               <i className="fas fa-exclamation-circle"></i>Full name is required</p>}
               
@@ -66,8 +76,17 @@ function Login() {
               <i className="fas fa-exclamation-circle"></i>Confirm your password
               </p>}
 
-              <button>Signup</button>
-         </form>
+              <button >LogIn</button>
+         </form>:
+         <div className='logout-box'>   
+           <span className='l-b-span-one'>
+             <span className='l-b-span-two'>Hello! </span><p className='foranim-span'> {userDet.fullname} </p>
+           </span>
+           <button onClick={changeLogin}>
+             Log Out
+           </button>
+         </div>   
+         }
          </div>
     </div>
   )

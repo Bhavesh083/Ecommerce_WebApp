@@ -6,7 +6,7 @@ export const cartAdd = (id,title,rating,cost,img) => ({
         rating: rating,
         cost  : cost,
         img   : img,
-     }  
+     }   
 })
 
 export const cartDel = (id) => ({

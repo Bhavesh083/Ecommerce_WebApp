@@ -1,16 +1,16 @@
 export const initialState = {
     items : [],
-    user : null,
+    user : null, 
 }
-const reducer = (state = initialState, action) => {
+const cartReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'Add': 
+        case 'Add':  
             return {
                 ...state,
                 items : [...state.items,action.item]
             }
             break;
-        case 'Del':
+        case 'Del':       
                 const newItems = state.items
                 const ind = state.items.findIndex(item => item.id === action.item.id)
                 if(ind >= 0){
@@ -27,4 +27,4 @@ const reducer = (state = initialState, action) => {
             return state;
     }
 }
-export default reducer;
+export default cartReducer; 

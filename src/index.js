@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './App';
-import { createStore } from 'redux';
-import reducer from './reducers/reducer'
+import { combineReducers, createStore } from 'redux';
+import cartReducer from './reducers/cartReducer';
+import loginReducer from './reducers/loginReducer';
 
-const store = createStore(reducer)
+const mainRed = combineReducers({cartReducer,loginReducer})
+const store = createStore(mainRed); 
 
-ReactDOM.render(
+ReactDOM.render( 
       <React.StrictMode>
         <Provider store={store}>
           <App />
