@@ -10,7 +10,7 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 import { useSelector } from 'react-redux';
-import { initialState } from './reducers/cartReducer';
+import { initialState } from './reducers/cartReducer'; 
  
 function Header() {
 

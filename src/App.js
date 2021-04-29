@@ -7,8 +7,14 @@ import Checkout from './Checkout';
 import Login from './Login';
 import Footer from './Footer';
 import Contact from './Contact';
+import Itemopen from './Itemopen';
+import { useSelector } from 'react-redux';
 
 function App() {
+
+
+  const op = useSelector(state => state.openItemReducer.item);
+
   return (
     <Router>
       <div className="App">
@@ -18,6 +24,11 @@ function App() {
                 <Contact />
                 <Footer />
             </Route>
+      { op.cost ? <Route path='/openitem'>
+                <Header />
+                <Itemopen /> 
+                <Footer />
+            </Route>:''}
             <Route path='/checkout'>
                 <Header />
                 <Checkout />

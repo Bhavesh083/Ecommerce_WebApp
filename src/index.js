@@ -5,8 +5,9 @@ import App from './App';
 import { combineReducers, createStore } from 'redux';
 import cartReducer from './reducers/cartReducer';
 import loginReducer from './reducers/loginReducer';
+import openItemReducer from './reducers/openItemReducer';
 
-const mainRed = combineReducers({cartReducer,loginReducer})
+const mainRed = combineReducers({cartReducer,loginReducer,openItemReducer})
 const store = createStore(mainRed); 
 
 ReactDOM.render( 

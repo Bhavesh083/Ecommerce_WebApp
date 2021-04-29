@@ -42,10 +42,10 @@ function Contact() {
                     <span>Student at Hindustan University, Chennai, Tamil Nadu, India</span>
                     <span>B.Tech, Computer Science Engineering</span>
                     <div className='footer-links-contact'> 
-                    <a className='f-l-c-link' href='/'>Facebook</a>
-                    <a className='f-l-c-link' href='/'>Instagram</a>
-                    <a className='f-l-c-link' href='/'>LinkedIn</a>
-                    <a className='f-l-c-link' href='/'>GitHub</a> 
+                    <a className='f-l-c-link' href='https://www.facebook.com/m.gowtham.77920/about/'>Facebook</a>
+                    <a className='f-l-c-link' href='https://www.instagram.com/mgr_gowtham/'>Instagram</a>
+                    <a className='f-l-c-link' href='https://www.linkedin.com/in/gowtham-reddy-8217b3190/'>LinkedIn</a>
+                    <a className='f-l-c-link' href='https://twitter.com/MGOWTHAMREDDY22?s=08/'>Twitter</a> 
                     </div>
                 </div> 
             </div>
