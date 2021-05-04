@@ -17,7 +17,8 @@ function Product({id,title,rating,cost,img}) {
     } 
     const openItem = () =>{
         history.push("/openitem");
-        dispatch(openitemAdd(id,title,rating,cost,img));
+        dispatch(openitemAdd(id,title,rating,cost,img));    
+        window.scrollTo(0,-1000); 
     }
  
     return (

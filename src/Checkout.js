@@ -1,16 +1,27 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Checkoutitem from './Checkoutitem'
-import './Checkout.css'
+import './Checkout.css';
+import { useHistory } from "react-router-dom";
+import { cartOrd } from './actions/cartAction';
 
 function Checkout() {
 
-    const cart = useSelector(state => state.cartReducer.items)
+    const cart = useSelector(state => state.cartReducer.items);
+    const history = useHistory();
+    const dispatch = useDispatch();
 
     const cost = cart.map(item => item.cost)
-    console.log(cost)
+    console.log(cost) 
     const curcost = cost.reduce((prev,cur) => prev+cur,0) 
     console.log(curcost)
+
+    const butPushup = () => { 
+        dispatch(cartOrd(cart));
+        history.push("/myorders");
+        alert("Thank You! your order is confirmed");
+        window.scrollTo(0,-1000); 
+    } 
 
     return ( 
         <div className='checkout'>
@@ -21,8 +32,8 @@ function Checkout() {
                            <h2>Your Cart</h2>
                         </div>
                         <div className='payment'>
-                            <p>Subtotal ({cart.length} items) : {curcost} $ </p>
-                            <button>Proceed to Checkout</button>
+                            <p>Subtotal ({cart.length} items) : {curcost}$ </p>
+                            <button onClick={() => butPushup()} >Proceed to Checkout</button>
                         </div>
                    </div> 
                     <div className='ço-cart-body'>

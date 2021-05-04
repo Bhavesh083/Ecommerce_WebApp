@@ -20,6 +20,9 @@ function Header() {
   const openMenu = () =>{
     setOpen(!open); 
   }
+  const butPushup = () => {
+    window.scrollTo(0,-1000); 
+  } 
 
   return (
     <div className='header'>
@@ -33,19 +36,19 @@ function Header() {
         <SearchIcon className='h-sb-icon' />
       </div>
       <div className='header-navs'>
-          <Link className='header-navs-link contact two disphide' to='/'>
+          <Link onClick={()=>butPushup()} className='header-navs-link contact two disphide' to='/'>
               <span className='h-n-l-twospan'>Home</span>
               <span className='notif notif-home'><HomeRoundedIcon/></span>
           </Link> 
-          <Link className='header-navs-link contact two disphide' to='login'>
+          <Link onClick={()=>butPushup()} className='header-navs-link contact two disphide' to='login'>
               <span className='h-n-l-twospan'>SignIn</span>
               <span className='notif notif-down' ><LabelImportantRoundedIcon/></span>
           </Link>    
-          <Link className='header-navs-link contact two disphide' to='/contact'>
+          <Link onClick={()=>butPushup()} className='header-navs-link contact two disphide' to='/contact'>
               <span className='h-n-l-twospan'>Contact</span>
               <span className='notif notif-cont'><SupervisorAccountIcon/></span>
           </Link>
-          <Link className='header-navs-link-last cart ' to='checkout'>
+          <Link onClick={()=>butPushup()} className='header-navs-link-last cart ' to='checkout'>
               <span className='h-n-l-cartspan disphide'>Cart</span> 
               <ShoppingCartIcon className='h-n-l-l-icon' /> 
               <span className='h-n-l-last-span '>{cart.length}</span>                  
@@ -56,15 +59,15 @@ function Header() {
       </div>
       </div>
       <div className={open? 'openedmenu rcheader': 'closedmenu rcheader'}>
-          <Link className='rch-link' to='/'>
+          <Link onClick={()=>butPushup()} className='rch-link' to='/'>
               <span className='h-n-l-twospan'>Home</span>
               <span className='notif notif-home'><HomeRoundedIcon/></span>
           </Link> 
-          <Link className='rch-link' to='login'>
+          <Link onClick={()=>butPushup()} className='rch-link' to='login'>
               <span className='h-n-l-twospan'>SignIn</span>
               <span className='notif-down notif' ><LabelImportantRoundedIcon/></span>
           </Link> 
-          <Link className='rch-link' to='contact'>
+          <Link onClick={()=>butPushup()} className='rch-link' to='contact'>
               <span className='h-n-l-twospan'>Contact</span>
               <span className='notif notif-cont'><SupervisorAccountIcon/></span>
           </Link>

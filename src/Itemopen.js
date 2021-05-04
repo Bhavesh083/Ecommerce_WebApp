@@ -14,6 +14,7 @@ function Itemopen() {
 
     const backGo = () => {
         history.push("/");
+        window.scrollTo(0,-1000); 
     }
     const addCartto = () =>{
         dispatch(cartAdd(oi.id,oi.title,oi.rating,oi.cost,oi.img)); 

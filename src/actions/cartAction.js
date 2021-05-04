@@ -11,7 +11,12 @@ export const cartAdd = (id,title,rating,cost,img) => ({
 
 export const cartDel = (id) => ({
     type : 'Del',
-    item : {
+    item : { 
         id    : id,
-    }
+    }                                               
+})
+
+export const cartOrd = (cart) => ({
+    type : 'AdORD',
+    cart : cart,
 })

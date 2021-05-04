@@ -2,6 +2,8 @@ import React,{useState} from 'react';
 import {useForm} from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';  
+import { useHistory } from 'react-router';
+import { cartOrd } from './actions/cartAction';
 import { logAdd } from './actions/loginAction';
 import './Login.css'; 
  
@@ -12,7 +14,9 @@ function Login() {
   const [login, setLogin] = useState(true);
 
   const userDet = useSelector(state => state.loginReducer.user);  
-  const dispatch = useDispatch();                       
+
+  const dispatch = useDispatch();           
+  const history = useHistory();            
 
   const {register,handleSubmit,watch, formState:{errors}} = useForm({reValidateMode:'onChange'});
   
@@ -23,13 +27,18 @@ function Login() {
   }
   const changeCpeye = () =>{    
     setCpeye(!cpeye);
-  } 
+  }  
   const changeLogin = () =>{
     setLogin(!login); 
+    window.scrollTo(0,-1000); 
   } 
   const onSubmit = (data) => {
     dispatch(logAdd(data.fullname,data.email,data.password));
     setLogin(!login); 
+  } 
+  const butPushup = () => { 
+    history.push("/myorders");
+    window.scrollTo(0,-1000); 
   } 
 
   return (
@@ -82,6 +91,9 @@ function Login() {
            <span className='l-b-span-one'>
              <span className='l-b-span-two'>Hello! </span><p className='foranim-span'> {userDet.fullname} </p>
            </span>
+           <button onClick={()=>butPushup()}>
+             Your Orders
+           </button>
            <button onClick={changeLogin}>
              Log Out
            </button>
