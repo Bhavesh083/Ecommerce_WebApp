@@ -27,7 +27,7 @@ function Header() {
   return (
     <div className='header'>
     <div className='lcheader'>  
-      <Link className='header-logo-link' to='/'>
+      <Link onClick={()=>butPushup()} className='header-logo-link' to='/'>
          <span className='mgr'>GowthaM's</span>
          <span className='mgr-icon'> <HeadsetMicIcon /></span>
       </Link>
@@ -60,15 +60,15 @@ function Header() {
       </div>
       <div className={open? 'openedmenu rcheader': 'closedmenu rcheader'}>
           <Link onClick={()=>butPushup()} className='rch-link' to='/'>
-              <span className='h-n-l-twospan'>Home</span>
+              <span className='h-n-l-twospan h-n-l-twospan-last-px'>Home</span>
               <span className='notif notif-home'><HomeRoundedIcon/></span>
           </Link> 
           <Link onClick={()=>butPushup()} className='rch-link' to='login'>
-              <span className='h-n-l-twospan'>SignIn</span>
+              <span className='h-n-l-twospan h-n-l-twospan-last-px'>SignIn</span>
               <span className='notif-down notif' ><LabelImportantRoundedIcon/></span>
           </Link> 
           <Link onClick={()=>butPushup()} className='rch-link' to='contact'>
-              <span className='h-n-l-twospan'>Contact</span>
+              <span className='h-n-l-twospan h-n-l-twospan-last-px'>Contact</span>
               <span className='notif notif-cont'><SupervisorAccountIcon/></span>
           </Link>
       </div>

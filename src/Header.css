@@ -103,7 +103,7 @@
     align-items: center;
 }
 .header-searchbar-sb .h-sb-inp{
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 3px 0px 0px 3px;
     flex: 1;
     height: 10px;
     padding: 10px;
@@ -111,7 +111,7 @@
     outline: none;
 }
 .header-searchbar-sb .h-sb-icon{
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 0px 3px 3px 0px;
     height: 20px;
     padding: 5px 5px;
     background-color: rgb(184, 184, 184);
@@ -415,4 +415,8 @@
     .notif{
         margin-right: 20px;
     }   
+}
+.h-n-l-twospan-last-px{
+    font-size: 13px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

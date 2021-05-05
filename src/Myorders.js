@@ -1,7 +1,6 @@
 import { Star } from '@material-ui/icons';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Checkoutitem from './Checkoutitem';
 import "./Myorders.css";
 
 function Myorders() {

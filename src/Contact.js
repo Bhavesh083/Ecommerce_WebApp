@@ -14,7 +14,7 @@ function Contact() {
             <div className='prof-card-one'>
                 <div className='top-sec-card'>
                     <div className='img-card-contact'>
-                         <img className='bg-chg-im'  alt='Bhavesh' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMUvUAlBi12jYDZUc8Gsv1rPeURIfTCX5xqg&usqp=CAU'/>
+                         <img className='bg-chg-im'  alt='Bhavesh' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTNg6MOVMKxYgQCCKlfavOs6DczGoLyGRpqA&usqp=CAU'/>
                     </div>
                 </div>
                 <div className='main-sec-contact'> 
@@ -33,7 +33,7 @@ function Contact() {
             <div className='prof-card-one'>
                 <div className='top-sec-card'>
                     <div className='img-card-contact'>
-                         <img alt='Gowtham' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMUvUAlBi12jYDZUc8Gsv1rPeURIfTCX5xqg&usqp=CAU'/>
+                         <img alt='Gowtham' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTNg6MOVMKxYgQCCKlfavOs6DczGoLyGRpqA&usqp=CAU'/>
                     </div>
                 </div>
                 <div className='main-sec-contact'>

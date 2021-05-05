@@ -55,3 +55,19 @@
 .f-ck-but:hover{
     background-color: rgb(231, 231, 231);
 }
+
+@media screen and (max-width: 500px){
+ .Checkoutitem-box img{
+    margin-top: 12.5px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 100px;
+    height: 95px;
+}
+.cout-bdy-p{
+  font-size: 0.9rem;
+}
+.stars-ck{
+    font-size:6px;
+}
+}
