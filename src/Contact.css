@@ -21,17 +21,19 @@
     border-bottom-left-radius: 50% 16%;
     border-bottom-right-radius: 50% 16%;
     overflow: hidden;
-    height: 60%;  background-image: linear-gradient(to right, #171d42, #131c3d, #101a38, #0d1933, #0b172e, #0c182f, #0c1a31, #0d1b32, #10203a, #132442, #16294b, #1a2e53);}
+    height: 60%;  background-image: linear-gradient(to right, #171d42, #131c3d, #101a38, #0d1933, #0b172e, #0c182f, #0c1a31, #0d1b32, #10203a, #132442, #16294b, #1a2e53);
+}
 .img-card-contact{
      margin-top: 8px;
      display: flex;
      justify-content: center;
      align-content: center;
+     overflow: hidden;
 }
 .img-card-contact img{
-    width: 52%;
-    margin-top: 84px;
-    border-radius: 50px;
+    width: 45%;
+    margin-top: 53px;
+    border-radius: 0px;
 }
 .main-sec-contact{
     margin: 0 auto; 

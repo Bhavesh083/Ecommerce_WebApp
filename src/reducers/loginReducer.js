@@ -1,6 +1,7 @@
 export const initialState = {
     user : {
-    }
+    },
+    notlogin : true ,
 }
 const loginReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -13,6 +14,12 @@ const loginReducer = (state = initialState, action) => {
                     password : action.user.password,
                 }
             }
+            break; 
+        case 'logAdd':  
+            return {
+                ...state,
+                notlogin : !state.notlogin,
+            }    
             break; 
         default:  
             return state;

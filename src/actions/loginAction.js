@@ -6,3 +6,7 @@ export const logAdd = (fullname,email,password) => ({
         password : password,  
     }
 })
+
+export const loginAdd = () => ({
+    type : 'logAdd',
+}) 

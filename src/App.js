@@ -15,8 +15,8 @@ function App() {
 
  
   const op = useSelector(state => state.openItemReducer.item);
-  const ord = useSelector(state => state.cartReducer.orders);
 
+  
   return (
     <Router>
       <div className="App">
@@ -26,11 +26,11 @@ function App() {
                 <Contact />
                 <Footer />
             </Route>
-      { ord.length !== 0 ? <Route path='/myorders'>
+            <Route path='/myorders'>
                 <Header />
                 <Myorders /> 
-                <Footer />
-            </Route>:''}
+                <Footer />    
+            </Route>
       { op.cost ? <Route path='/openitem'>
                 <Header />
                 <Itemopen /> 
