@@ -13,7 +13,7 @@ function Myorders() {
         console.log(mord.length);
     }  
 
-    return (
+    return(            
         <div className='myord'>
             <span className='yr-ord-ordpg'>{ ord.length !== 0 ? 'Your Orders':'No Orders'}</span>  
                 { ord.length !== 0 ?<div className='cbox-ordbox-ord'>
