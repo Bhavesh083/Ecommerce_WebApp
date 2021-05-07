@@ -12,7 +12,7 @@ function Myorders() {
     const showImg = () =>{
         console.log(mord.length);
     }  
-
+ 
     return(            
         <div className='myord'>
             <span className='yr-ord-ordpg'>{ ord.length !== 0 ? 'Your Orders':'No Orders'}</span>  
