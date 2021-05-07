@@ -5,10 +5,10 @@ import "./Myorders.css";
 
 function Myorders() {
 
-    const mord = useSelector(state => state.cartReducer.orders);
+     const mord = useSelector(state => state.cartReducer.orders);
     const ord = useSelector(state => state.cartReducer.orders);
   
-
+      
     const showImg = () =>{
         console.log(mord.length);
     }  
