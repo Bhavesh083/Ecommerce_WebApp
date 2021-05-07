@@ -7,9 +7,9 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
 
 
-function Contact() {
+function Contact(){
     return (
-        <div>
+        <div> 
            <div className='main-contact-box'> 
             <div className='prof-card-one'>
                 <div className='top-sec-card'>
