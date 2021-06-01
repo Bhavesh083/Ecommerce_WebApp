@@ -6,7 +6,7 @@ function Home() {
     return (
         <div className='home'> 
             <div className='h-banner-div'> 
-              <img className='home-banner1' src='http://cdn.shopify.com/s/files/1/0268/2935/7079/collections/Sample_Banner_1200x1200.jpg?v=1596590381' />
+              <img className='home-banner1' src='https://staticimg.titan.co.in/production/promotions/fastrack/reflextunes/Headphone_Banner3.jpg' />
               <img className='home-banner11' src='https://mir-s3-cdn-cf.behance.net/projects/404/fa51ef86518111.Y3JvcCw5NDYsNzQwLDEwMywzMzc.jpg' />
             </div>
            <div className='products-list'>
