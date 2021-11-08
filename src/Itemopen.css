@@ -92,6 +92,9 @@
     margin-top: 20px;
     flex-direction: column;
    }
+   .leftopenitembdy{
+    border-left: 0px solid rgb(53, 97, 155);
+}
 }
 @media screen and (max-width:600px){
     .butkbsicon{

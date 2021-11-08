@@ -7,6 +7,7 @@ import Checkout from './Checkout';
 import Login from './Login';
 import Footer from './Footer';
 import Contact from './Contact';
+import SearchRes from './SearchRes';
 import Myorders from './Myorders';
 import Itemopen from './Itemopen';
 import { useSelector } from 'react-redux';
@@ -39,6 +40,11 @@ function App() {
             <Route path='/checkout'>
                 <Header />
                 <Checkout />
+                <Footer />
+            </Route>
+            <Route path='/searchres'>
+                <Header />
+                <SearchRes />
                 <Footer />
             </Route>
             <Route path='/login' >
