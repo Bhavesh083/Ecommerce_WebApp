@@ -35,6 +35,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-left: 6px solid rgb(53, 97, 155);
 }
 .leftopenitembdy img{
     margin-top: -20px;
@@ -106,6 +107,7 @@
     }
     .leftopenitembdy{
         width: 100%;
+        
     }
     .leftopenitembdy img{
         margin-top: 10px;
