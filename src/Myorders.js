@@ -5,19 +5,17 @@ import "./Myorders.css";
 
 function Myorders() {
 
-    const mord = useSelector(state => state.cartReducer.orders);
     const ord = useSelector(state => state.cartReducer.orders);
-  
       
     const showImg = () =>{
-        console.log(mord.length);
+        console.log(ord.length);
     }  
  
     return(            
         <div className='myord'>
             <span className='yr-ord-ordpg'>{ ord.length !== 0 ? 'Your Orders':'No Orders'}</span>  
                 { ord.length !== 0 ?<div className='cbox-ordbox-ord'>
-                         {mord.map(item => (
+                         {ord.map(item => (
                             <div className='Checkoutitem-box '>
                             <div> 
                                  <img src={item.img} />

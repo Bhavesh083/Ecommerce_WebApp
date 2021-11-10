@@ -56,7 +56,7 @@ function Header() {
               <span className='notif notif-home closeSym'><HomeRoundedIcon/></span>
           </Link>    
           <Link onClick={()=>butPushup()} className='header-navs-link contact two disphide' to='/login'>
-              <span className='h-n-l-twospan'>SignIn</span>
+              <span className='h-n-l-twospan'>Account</span>
               <span className='notif notif-down closeSym' ><LabelImportantRoundedIcon/></span>
           </Link>   
           <Link onClick={()=>butPushup()} className='header-navs-link contact two disphide' to='/contact'>
@@ -68,7 +68,7 @@ function Header() {
               <ShoppingCartIcon className='h-n-l-l-icon' /> 
               <span className='h-n-l-last-span '>{cart.length}</span>                  
           </Link>
-          <Link onClick={()=>butPushup()} className='header-navs-link contact two disphide' to='/orders'>
+          <Link onClick={()=>butPushup()} className='header-navs-link contact two disphide' to='/myorders'>
               <span className='h-n-l-twospan'>Your Orders</span>
               <span className='notif notif-ord closeSym'><DashboardRoundedIcon/></span>
           </Link>    
@@ -82,12 +82,12 @@ function Header() {
               <span className='h-n-l-twospan h-n-l-twospan-last-px'>Home</span>
               <span className='notif notif-home closeRes'><HomeRoundedIcon/></span>
           </Link> 
-          <Link onClick={()=>butPushup()} className='rch-link' to='/orders'>
+          <Link onClick={()=>butPushup()} className='rch-link' to='/myorders'>
               <span className='h-n-l-twospan h-n-l-twospan-last-px'>Orders</span>
               <span className='notif notif-ord closeRes'><DashboardRoundedIcon/></span>
           </Link> 
           <Link onClick={()=>butPushup()} className='rch-link' to='login'>
-              <span className='h-n-l-twospan h-n-l-twospan-last-px'>SignIn</span>
+              <span className='h-n-l-twospan h-n-l-twospan-last-px'>Account</span>
               <span className='notif-down notif closeRes' ><LabelImportantRoundedIcon/></span>
           </Link> 
           <Link onClick={()=>butPushup()} className='rch-link' to='contact'>

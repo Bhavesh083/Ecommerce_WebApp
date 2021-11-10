@@ -1,24 +1,23 @@
 export const initialState = {
     user : {
     },
-    notlogin : true ,
+    notlogin : false,
 }
 const loginReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'Addlog':  
             return {
                 ...state,
-                user : { 
-                    fullname : action.user.fullname,
+                user : {  
                     email : action.user.email,
-                    password : action.user.password,
+                    password : action.user.password
                 }
             }
             break; 
         case 'logAdd':  
             return {
                 ...state,
-                notlogin : !state.notlogin,
+                notlogin : action.bol,
             }    
             break; 
         default:  

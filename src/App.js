@@ -7,6 +7,7 @@ import Checkout from './Checkout';
 import Login from './Login';
 import Footer from './Footer';
 import Contact from './Contact';
+import Signup from './Signup';
 import SearchRes from './SearchRes';
 import Myorders from './Myorders';
 import Itemopen from './Itemopen';
@@ -16,7 +17,7 @@ function App() {
 
  
   const op = useSelector(state => state.openItemReducer.item);
-
+  const si = useSelector(state => state.loginReducer.notlogin);
   
   return (
     <Router>
@@ -32,7 +33,8 @@ function App() {
                 <Myorders /> 
                 <Footer />    
             </Route>
-      { op.cost ? <Route path='/openitem'>
+         {op.cost ? 
+            <Route path='/openitem'>
                 <Header />
                 <Itemopen /> 
                 <Footer />
@@ -47,10 +49,16 @@ function App() {
                 <SearchRes />
                 <Footer />
             </Route>
+          {si?"":
+            <Route path='/signup' >
+                 <Header />
+                 <Signup />
+                 <Footer />
+            </Route>}
             <Route path='/login' >
                  <Header />
                  <Login />
-                <Footer />
+                 <Footer />
             </Route>
             <Route path='/'>
                 <Header />

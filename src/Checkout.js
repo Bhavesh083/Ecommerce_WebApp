@@ -12,9 +12,7 @@ function Checkout() {
     const dispatch = useDispatch();
 
     const cost = cart.map(item => item.cost)
-    console.log(cost) 
     const curcost = cost.reduce((prev,cur) => prev+cur,0) 
-    console.log(curcost)
 
     const butPushup = () => { 
         dispatch(cartOrd(cart));

@@ -1,12 +1,12 @@
-export const logAdd = (fullname,email,password) => ({
+export const logAdd = (email,password) => ({
     type : 'Addlog',
     user : {
         email : email, 
-        fullname : fullname,
-        password : password,  
+        password : password
     }
 })
 
-export const loginAdd = () => ({
+export const loginAdd = (bool) => ({
     type : 'logAdd',
+    bol : bool
 }) 
