@@ -134,7 +134,8 @@
 .header-navs{
     display: flex;
     flex-direction: row;
-    align-items: center
+    align-items: center;
+    justify-content: space-around;
 }
 .header-navs-link{
     text-decoration: none;
@@ -182,7 +183,7 @@
     margin-left: -1px;
 }
 .notif-ord{
-    margin-top: 2px;
+    margin-top: 6px;
 }
 .notif-down{
     margin-top: 4px; 
@@ -454,4 +455,9 @@
     .closeSym{
         display: none;
     }   
+}
+@media screen and (min-width:1200px){
+    .header-navs{
+        min-width: 45% !important;
+    }
 }

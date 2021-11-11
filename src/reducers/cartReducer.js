@@ -8,13 +8,18 @@ const cartReducer = (state = initialState, action) => {
         case 'Add':  
             return {
                 ...state,
-                items : [...state.items,action.item]
+                items : [...action.items]
             }
             break;
         case 'AdORD': 
             return {
                 ...state, 
-                orders : [...state.orders,...action.cart],
+                orders : [...action.ord],
+            }                      
+            break;
+        case 'DelCart': 
+            return {
+                ...state, 
                 items : [],
             }                      
             break;

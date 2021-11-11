@@ -1,15 +1,8 @@
 const router = require('express').Router();
 let Accounts = require('../models/account.model');
 
-router.route('/').get((req, res) => {
-  Accounts.find() 
-    .then(acc => res.json(acc)) 
-    .catch(err => res.status(400).json('Error: ' + err));
-});
-
-router.route('/auth').post((req,res) => { 
+router.route('/auth').post((req,res) => {  
     Accounts.findOne({email:req.body.email,password:req.body.password}).then((acc) => {
-        console.log(acc);
         if(acc===null){
           res.json(false);} 
         else{
@@ -18,7 +11,7 @@ router.route('/auth').post((req,res) => {
   });
 
 router.route('/del').delete((req, res) => {
-    Accounts.deleteMany({password:"ab"})    
+    Accounts.deleteMany({password:"ab"})     
       .then(acc => res.json("Deleted s"))
       .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -38,10 +31,27 @@ router.route('/add').post((req,res) => {
       res.json(false);}}).catch(err => console.log('Error in findOne: ' + err));
 });
 
+router.route('/fetch').post((req, res) => {
+  Accounts.find({email:req.body.email,password:req.body.password}) 
+    .then(acc => {
+      res.json(acc[0].orders);  
+    }) 
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/fetchCart').post((req, res) => {
+  Accounts.find({email:req.body.email,password:req.body.password}) 
+    .then(acc => {
+      res.json(acc[0].cart);  
+    }) 
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/addOrders').post((req,res) => {
-    Accounts.findOne({email:req.body.email})
+    Accounts.findOne({email:req.body.email,password:req.body.password})
     .then(acc => { 
-      acc.orders = req.body.ord;
+      acc.orders = [...acc.orders,...req.body.cart];
+      acc.cart = [];
       acc.save()
         .then(() => res.json('order updated!'))     
         .catch(err => res.status(400).json('Error: ' + err));
@@ -50,14 +60,36 @@ router.route('/addOrders').post((req,res) => {
 });
 
 router.route('/addCart').post((req,res) => {
-    Accounts.findOne({email:req.body.email})
+    Accounts.findOne({email:req.body.email,password:req.body.password})
     .then(acc => { 
-      acc.cart = req.body.ord;
-      acc.save()
-        .then(() => res.json('order updated!'))     
-        .catch(err => res.status(400).json('Error: ' + err));
+      const ind = acc.cart.findIndex(item => item.id === req.body.id)
+      if(ind<0){ 
+        acc.cart = [...acc.cart,...req.body.item];
+        acc.save()
+           .then(() => res.json('cart updated!'))     
+           .catch(err => res.status(400).json('Duplicate ' + err));
+      }
+      else{
+        res.json("Duplicate found");
+      }
     })
     .catch(err => res.status(400).json('Acc not found'));
+});
+
+router.route('/delItem').post((req,res) => {
+  Accounts.findOne({email:req.body.email,password:req.body.password})
+  .then(acc => { 
+    const items = acc.cart;
+    const ind = acc.cart.findIndex(item => item.id === req.body.id)
+    if(ind >= 0){ 
+      items.splice(ind,1)
+    }
+    acc.cart = [...items];
+    acc.save()
+      .then(() => res.json('cart updated!'))     
+      .catch(err => res.status(400).json('Error: ' + err));
+  })
+  .catch(err => res.status(400).json('Acc not found'));
 });
 
 module.exports = router; 

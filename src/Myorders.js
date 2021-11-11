@@ -1,22 +1,38 @@
+import axios from 'axios';
+import React,{useEffect,useState} from 'react';
 import { Star } from '@material-ui/icons';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import "./Myorders.css";
+import { useHistory } from "react-router-dom";
+import { cartOrd } from './actions/cartAction';
 
 function Myorders() {
 
     const ord = useSelector(state => state.cartReducer.orders);
-      
-    const showImg = () =>{
-        console.log(ord.length);
-    }  
- 
-    return(            
+    const userDet = useSelector(state => state.loginReducer.user); 
+    const si = useSelector(state => state.loginReducer.notlogin); 
+
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    const [orders,setOrders] = useState([]);
+
+    useEffect(() => { 
+        if(si){
+        axios.post("http://localhost:5000/ac/fetch",userDet)
+            .then(res => { 
+                dispatch(cartOrd(res.data));
+            })
+            .catch(error => console.log("Error getting")); 
+        }
+    },[]); 
+
+    return(             
         <div className='myord'>
             <span className='yr-ord-ordpg'>{ ord.length !== 0 ? 'Your Orders':'No Orders'}</span>  
                 { ord.length !== 0 ?<div className='cbox-ordbox-ord'>
                          {ord.map(item => (
-                            <div className='Checkoutitem-box '>
+                            <div className='Checkoutitem-box ' key={item.id}>
                             <div> 
                                  <img src={item.img} />
                             </div>
@@ -30,7 +46,7 @@ function Myorders() {
                                      }
                                  </div>
                                  <div className='fnal-ck'>
-                                     <p className='f-ck-p'>{item.cost}$</p>
+                                     <p className='f-ck-p'>₹{item.cost}</p>
                                      <p className='ord-p-last-des'>Ordered</p>
                                  </div>
                              </div>

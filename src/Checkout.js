@@ -1,28 +1,54 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import Checkoutitem from './Checkoutitem'
+import React,{useEffect} from 'react';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import Checkoutitem from './Checkoutitem';
 import './Checkout.css';
+import { cartAdd } from './actions/cartAction';
 import { useHistory } from "react-router-dom";
-import { cartOrd } from './actions/cartAction';
+import { cartEmpty } from './actions/cartAction';
+import { CardTravelRounded } from '@material-ui/icons';
 
 function Checkout() {
 
     const cart = useSelector(state => state.cartReducer.items);
+    const userDet = useSelector(state => state.loginReducer.user); 
+    const si = useSelector(state => state.loginReducer.notlogin); 
+
     const history = useHistory();
     const dispatch = useDispatch();
 
     const cost = cart.map(item => item.cost)
     const curcost = cost.reduce((prev,cur) => prev+cur,0) 
 
+    useEffect(() => { 
+        if(si){
+        axios.post("http://localhost:5000/ac/fetchCart",userDet)
+            .then(res => { 
+                dispatch(cartAdd(res.data));
+            })
+            .catch(error => console.log("Error getting")); 
+        }
+    },[]); 
+
     const butPushup = () => { 
-        dispatch(cartOrd(cart));
+        const od = {
+            email : userDet.email,
+            password : userDet.password,
+            cart : [...cart]
+        }
+        axios.post("http://localhost:5000/ac/addOrders",od)
+        .then(res => {
+            console.log(res.data);
+        })
+        .catch(error => console.log("Error pushing orders")); 
+        dispatch(cartEmpty());
         history.push("/myorders");
-        alert("Thank You! your order is confirmed");
+        alert("Yayyyy!!! 🚀\nYour order is confirmed!");
         window.scrollTo(0,-1000); 
-    } 
+    }  
 
     return ( 
-        <div className='checkout'>
+        <div className='checkout'> 
             {cart.length !== 0 ? (
                 <div className='co-cart'>
                    <div className='sec-devider'> 
@@ -30,13 +56,13 @@ function Checkout() {
                            <h2>Your Cart</h2>
                         </div>
                         <div className='payment'>
-                            <p>Subtotal ({cart.length} items) : {curcost}$ </p>
+                            <p>Subtotal  ---  ₹{curcost} </p>
                             <button onClick={() => butPushup()} >Proceed to Checkout</button>
                         </div>
                    </div> 
                     <div className='ço-cart-body'>
                          {cart.map(item => (
-                            <Checkoutitem
+                            <Checkoutitem key={item.id}
                             id={item.id}
                             title={item.title}
                             cost={item.cost}

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
 import './Itemopen.css'
 import { useDispatch, useSelector } from 'react-redux';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
@@ -10,19 +11,46 @@ function Itemopen() {
 
     const history = useHistory();
     const dispatch = useDispatch();
+
+    const userDet = useSelector(state => state.loginReducer.user); 
+    const si = useSelector(state => state.loginReducer.notlogin);   
     const oi = useSelector(state => state.openItemReducer.item);
 
     const backGo = () => {
         history.push("/");
         window.scrollTo(0,-1000); 
     }
-    const addCartto = () =>{
-        dispatch(cartAdd(oi.id,oi.title,oi.rating,oi.cost,oi.img)); 
+
+    const getCart = () =>{
+        axios.post("http://localhost:5000/ac/fetchCart",userDet)
+        .then(res => { 
+            dispatch(cartAdd(res.data));
+        }).catch(error => console.log("Error getting"));
     }
+
+    const cartAdder = () =>{
+        if(si){
+        const od = {
+            email : userDet.email,
+            password : userDet.password,
+            item : [oi],
+            id : oi.id,
+        }
+        axios.post("http://localhost:5000/ac/addCart",od)
+        .then(res => {
+            console.log(res.data);
+            getCart();
+        })
+        .catch(error => console.log("Error pushing orders"));
+        }
+        else{
+        alert("Dear user 😀, \nPlease login to add the item to the cart");
+    }
+    } 
 
 
     return (
-        <div className='totalopenitembox'>
+        <div className='totalopenitembox' key={oi.id}>
             <div className='leftbackbutbox1' onClick={()=>backGo()}>
                 <button className='butkbsicon'><KeyboardBackspaceIcon className='kbsicon'/>Go Back</button>
             </div>
@@ -37,8 +65,8 @@ function Itemopen() {
                                  <p><Star className='p-star-p-p' /></p>))
                     }</p>  
                 <div className='fnl-lst-dwn-bx'>    
-                <span>{oi.cost}$</span> 
-                <button onClick={()=>addCartto()}>Add to Cart</button>
+                <span>₹{oi.cost}</span> 
+                <button onClick={()=>cartAdder()}>Add to Cart</button>
                 </div>
             </div>
         </div>

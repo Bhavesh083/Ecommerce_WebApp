@@ -1,4 +1,5 @@
-import React from 'react'
+import React,{useEffect} from 'react';
+import axios from 'axios';
 import './App.css';
 import { BrowserRouter as Router , Switch , Route } from 'react-router-dom';
 import Header from './Header' ; 
@@ -11,13 +12,15 @@ import Signup from './Signup';
 import SearchRes from './SearchRes';
 import Myorders from './Myorders';
 import Itemopen from './Itemopen';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
 
- 
   const op = useSelector(state => state.openItemReducer.item);
+  const userDet = useSelector(state => state.loginReducer.user); 
   const si = useSelector(state => state.loginReducer.notlogin);
+  
+  const dispatch = useDispatch();
   
   return (
     <Router>

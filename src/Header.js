@@ -4,9 +4,9 @@ import { useHistory } from 'react-router';
 import {Link} from 'react-router-dom'
 import SearchIcon from '@material-ui/icons/Search' 
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 import HeadsetMicIcon from '@material-ui/icons/HeadsetMic';
 import DashboardRoundedIcon from '@material-ui/icons/DashboardRounded';
+import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import LabelImportantRoundedIcon from '@material-ui/icons/LabelImportantRounded';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
@@ -20,6 +20,7 @@ function Header() {
 
   const history = useHistory();
   const dispatch = useDispatch();
+  
   const cart = useSelector(state => state.cartReducer.items);
   const [open, setOpen] = useState(false);
   const [str,setStr] = useState("");
@@ -55,6 +56,15 @@ function Header() {
               <span className='h-n-l-twospan'>Home</span>
               <span className='notif notif-home closeSym'><HomeRoundedIcon/></span>
           </Link>    
+          <Link onClick={()=>butPushup()} className='header-navs-link contact two disphide' to='/myorders'>
+              <span className='h-n-l-twospan'>Your Orders</span>
+              <span className='notif notif-ord closeSym'><PlaylistAddCheckIcon/></span>
+          </Link> 
+          <Link onClick={()=>butPushup()} className='header-navs-link-last cart ' to='checkout'>
+              <span className='h-n-l-cartspan disphide'>Cart</span> 
+              <ShoppingCartIcon className='h-n-l-l-icon' /> 
+              <span className='h-n-l-last-span '>{cart.length}</span>                  
+          </Link>
           <Link onClick={()=>butPushup()} className='header-navs-link contact two disphide' to='/login'>
               <span className='h-n-l-twospan'>Account</span>
               <span className='notif notif-down closeSym' ><LabelImportantRoundedIcon/></span>
@@ -62,16 +72,7 @@ function Header() {
           <Link onClick={()=>butPushup()} className='header-navs-link contact two disphide' to='/contact'>
               <span className='h-n-l-twospan'>Contact</span>
               <span className='notif notif-cont closeSym'><SupervisorAccountIcon/></span>
-          </Link>
-          <Link onClick={()=>butPushup()} className='header-navs-link-last cart ' to='checkout'>
-              <span className='h-n-l-cartspan disphide'>Cart</span> 
-              <ShoppingCartIcon className='h-n-l-l-icon' /> 
-              <span className='h-n-l-last-span '>{cart.length}</span>                  
-          </Link>
-          <Link onClick={()=>butPushup()} className='header-navs-link contact two disphide' to='/myorders'>
-              <span className='h-n-l-twospan'>Your Orders</span>
-              <span className='notif notif-ord closeSym'><DashboardRoundedIcon/></span>
-          </Link>    
+          </Link>   
           <div onClick={()=>openMenu()} className={open?'menuicn menuicnc':'menuicn'}>
              <MenuRoundedIcon  className='menuicn-icn' />
           </div> 
@@ -84,7 +85,7 @@ function Header() {
           </Link> 
           <Link onClick={()=>butPushup()} className='rch-link' to='/myorders'>
               <span className='h-n-l-twospan h-n-l-twospan-last-px'>Orders</span>
-              <span className='notif notif-ord closeRes'><DashboardRoundedIcon/></span>
+              <span className='notif notif-ord closeRes'><PlaylistAddCheckIcon/></span>
           </Link> 
           <Link onClick={()=>butPushup()} className='rch-link' to='login'>
               <span className='h-n-l-twospan h-n-l-twospan-last-px'>Account</span>

@@ -7,6 +7,8 @@ import { useHistory } from 'react-router';
 import { cartOrd } from './actions/cartAction';
 import { logAdd, loginAdd } from './actions/loginAction';
 import './Login.css'; 
+import { cartAdd } from './actions/cartAction';
+import { cartEmpty } from './actions/cartAction';
 import { createChainedFunction } from '@material-ui/core';
  
 function Login() { 
@@ -14,8 +16,8 @@ function Login() {
   const [peye, setPeye] = useState(false);
   const [cpeye, setCpeye] = useState(false); 
   const [used, setUsed] = useState(false);
+  const [usr, setUsr] = useState({});
 
-  const userDet = useSelector(state => state.loginReducer.user); 
   const si = useSelector(state => state.loginReducer.notlogin);   
 
   const dispatch = useDispatch();            
@@ -31,10 +33,12 @@ function Login() {
   const changeCpeye = () =>{    
     setCpeye(!cpeye);
   }  
-  
+
+
   const onSubmit = (data) => {
+    setUsr(data);
+    loadData(data);
     axios.post('http://localhost:5000/ac/auth',data).then(res => { 
-      console.log(res.data);
       if(res.data)
       {
         setUsed(false);
@@ -47,6 +51,23 @@ function Login() {
       }
     }).catch(err => console.log("error "+err));
   } 
+
+  const userDet = useSelector(state => state.loginReducer.user); 
+
+  const loadData = (data) => {
+    axios.post("http://localhost:5000/ac/fetchCart",data)
+        .then(res => { 
+            dispatch(cartAdd(res.data));
+        })
+        .catch(error => console.log("Error in getting cart"));
+        
+    axios.post("http://localhost:5000/ac/fetch",data)
+        .then(res => { 
+            dispatch(cartOrd(res.data));
+        })
+        .catch(error => console.log("Error getting")); 
+  }
+
   const butPushup = () => { 
     history.push("/myorders");
     window.scrollTo(0,-1000); 
@@ -57,6 +78,8 @@ function Login() {
   }
   const changeLogin = () =>{
     dispatch(loginAdd(false));
+    window.location.reload();
+    dispatch(cartEmpty());
     window.scrollTo(0,-1000); 
   } 
 
@@ -79,7 +102,7 @@ function Login() {
               {peye?<i onClick={changePeye} className="fas fa-eye"></i>:<i onClick={changePeye} className="fas fa-eye-slash"></i>}</div>
     
               {used?<p className='error'><i className="fas fa-exclamation-circle"></i>Email and password did not match!</p>:""}
-              <button >LogIn</button>
+              <button className='btn-wid'>LogIn</button>
               <button onClick={()=>createAcc()} >Create new account</button>
          </form>:
          <div className='logout-box'>

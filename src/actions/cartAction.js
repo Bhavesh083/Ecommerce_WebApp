@@ -1,12 +1,6 @@
-export const cartAdd = (id,title,rating,cost,img) => ({
+export const cartAdd = (items) => ({
     type : 'Add',
-    item : {
-        id    : id,
-        title : title,
-        rating: rating,
-        cost  : cost,
-        img   : img,
-     }   
+    items : items,
 })
 
 export const cartDel = (id) => ({
@@ -16,7 +10,11 @@ export const cartDel = (id) => ({
     }                                               
 })
 
-export const cartOrd = (cart) => ({
+export const cartOrd = (orders) => ({
     type : 'AdORD',
-    cart : cart,
+    ord : orders,
+})
+
+export const cartEmpty = () => ({
+    type : 'DelCart'
 })
