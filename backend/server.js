@@ -18,8 +18,8 @@ const addAcc = require('./routes/addAcc');
 app.use('/item', addItems); 
 app.use('/ac', addAcc); 
 
-if(process.env.NODE_ENV === 'production'){
-    app.use(express.static('build'));
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static("client/build"));
 }
 
 app.listen(port, () => {
