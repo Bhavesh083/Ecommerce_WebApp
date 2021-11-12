@@ -19,7 +19,7 @@ app.use('/item', addItems);
 app.use('/ac', addAcc); 
 
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static('../build'));
+    app.use(express.static('build'));
 }
 
 app.listen(port, () => {
