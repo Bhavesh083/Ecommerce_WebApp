@@ -22,7 +22,7 @@ function Checkout() {
 
     useEffect(() => { 
         if(si){
-        axios.post("https://bhav-ecommerceapp.herokuapp.com/ecom/fetchCart",userDet)
+        axios.post("https://bhav-ecommerceapp.herokuapp.comfetchCart",userDet)
             .then(res => { 
                 dispatch(cartAdd(res.data));
             })
@@ -36,7 +36,7 @@ function Checkout() {
             password : userDet.password,
             cart : [...cart]
         }
-        axios.post("https://bhav-ecommerceapp.herokuapp.com/ecom/addOrders",od)
+        axios.post("https://bhav-ecommerceapp.herokuapp.comaddOrders",od)
         .then(res => {
             console.log(res.data);
         })
@@ -74,11 +74,11 @@ function Checkout() {
             ) : (
             <div className='cono-cart'>
               {/* <h1>Your Cart is empty !</h1> */}
-              <img className='ço-ca-img' src='https://i.pinimg.com/originals/2efa/2eacfa305d7715bdcd86bb4956209038.png' />
+              <img className='ço-ca-img' src='https://i.pinimg.com/originals/2e/ac/fa/2eacfa305d7715bdcd86bb4956209038.png' />
             </div>
                 )}
         </div>
     )
 }
 
-export default Checkout
+export default Checkout;

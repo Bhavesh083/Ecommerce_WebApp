@@ -22,7 +22,7 @@ function Itemopen() {
     }
 
     const getCart = () =>{
-        axios.post("https://bhav-ecommerceapp.herokuapp.com/ecom/fetchCart",userDet)
+        axios.post("https://bhav-ecommerceapp.herokuapp.com/fetchCart",userDet)
         .then(res => { 
             dispatch(cartAdd(res.data));
         }).catch(error => console.log("Error getting"));
@@ -36,7 +36,7 @@ function Itemopen() {
             item : [oi],
             id : oi.id,
         }
-        axios.post("https://bhav-ecommerceapp.herokuapp.com/ecom/addCart",od)
+        axios.post("https://bhav-ecommerceapp.herokuapp.com/addCart",od)
         .then(res => {
             console.log(res.data);
             getCart();
