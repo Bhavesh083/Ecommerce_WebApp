@@ -18,7 +18,7 @@ function Checkoutitem({id,title,rating,cost,img}) {
             password : userDet.password,
             id : id
         }
-        axios.post("http://localhost:5000/ac/delItem",od)
+        axios.post("http://localhost:80/ac/delItem",od)
         .then(res => { 
             getCarts(od);
         })
@@ -26,7 +26,7 @@ function Checkoutitem({id,title,rating,cost,img}) {
    }
 
    const getCarts = (od) =>{
-        axios.post("http://localhost:5000/ac/fetchCart",od)
+        axios.post("http://localhost:80/ac/fetchCart",od)
         .then(res => { 
             dispatch(cartAdd(res.data));
         })

@@ -19,7 +19,7 @@ function Myorders() {
 
     useEffect(() => { 
         if(si){
-        axios.post("http://localhost:5000/ac/fetch",userDet)
+        axios.post("http://localhost:80/ac/fetch",userDet)
             .then(res => { 
                 dispatch(cartOrd(res.data));
             })
