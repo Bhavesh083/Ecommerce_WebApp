@@ -21,3 +21,4 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+#"mongodb+srv://bhavesh:passwordecom01@ecommerceacc.ilmxs.mongodb.net/ItemsLists?retryWrites=true&w=majority"
