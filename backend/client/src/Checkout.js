@@ -22,7 +22,7 @@ function Checkout() {
 
     useEffect(() => { 
         if(si){
-        axios.post("http://localhost:80/ac/fetchCart",userDet)
+        axios.post("http://localhost:5000/ac/fetchCart",userDet)
             .then(res => { 
                 dispatch(cartAdd(res.data));
             })
@@ -36,7 +36,7 @@ function Checkout() {
             password : userDet.password,
             cart : [...cart]
         }
-        axios.post("http://localhost:80/ac/addOrders",od)
+        axios.post("http://localhost:5000/ac/addOrders",od)
         .then(res => {
             console.log(res.data);
         })

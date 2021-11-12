@@ -21,8 +21,8 @@ if(process.env.NODE_ENV === "production"){
     app.use(express.static("client/build"));
 }
 
-app.use(createProxyMiddleware('/ac',{target:'http://localhost:80'}));
-//const apiProxy = createProxyMiddleware('/',{target:'http://localhost:80/ac/auth'});
+app.use(createProxyMiddleware('/ac',{target:'http://localhost:5000'}));
+//const apiProxy = createProxyMiddleware('/',{target:'http://localhost:5000/ac/auth'});
 //app.use(apiProxy); 
  
 app.use('/ac', addAcc); 
