@@ -20,8 +20,8 @@ if(process.env.NODE_ENV === "production"){
     app.use(express.static("client/build"));
 }
 
-//app.use(createProxyMiddleware('/ac',{target:'https://bhav-ecommerceapp.herokuapp.com/'}));
-//const apiProxy = createProxyMiddleware('/',{target:'https://bhav-ecommerceapp.herokuapp.com/auth'});
+//app.use(createProxyMiddleware('/ac',{target:'https://bhav-ecommerceapp.herokuapp.com/ecom//'}));
+//const apiProxy = createProxyMiddleware('/',{target:'https://bhav-ecommerceapp.herokuapp.com/ecom//auth'});
 //app.use(apiProxy); 
  
 app.use('/ecom', addAcc); 

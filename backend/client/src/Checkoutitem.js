@@ -18,7 +18,7 @@ function Checkoutitem({id,title,rating,cost,img}) {
             password : userDet.password,
             id : id
         }
-        axios.post("https://bhav-ecommerceapp.herokuapp.com/delItem",od)
+        axios.post("https://bhav-ecommerceapp.herokuapp.com/ecom//delItem",od)
         .then(res => { 
             getCarts(od);
         })
@@ -26,7 +26,7 @@ function Checkoutitem({id,title,rating,cost,img}) {
    }
 
    const getCarts = (od) =>{
-        axios.post("https://bhav-ecommerceapp.herokuapp.com/fetchCart",od)
+        axios.post("https://bhav-ecommerceapp.herokuapp.com/ecom//fetchCart",od)
         .then(res => { 
             dispatch(cartAdd(res.data));
         })
