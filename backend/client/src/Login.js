@@ -38,7 +38,7 @@ function Login() {
   const onSubmit = (data) => {
     setUsr(data);
     loadData(data);
-    axios.post('http://localhost:5000/ac/auth',data).then(res => { 
+    axios.post('https://bhav-ecommerceapp.herokuapp.com/ecom/auth',data).then(res => { 
       if(res.data)
       {
         setUsed(false);
@@ -55,13 +55,13 @@ function Login() {
   const userDet = useSelector(state => state.loginReducer.user); 
 
   const loadData = (data) => {
-    axios.post("http://localhost:5000/ac/fetchCart",data)
+    axios.post("https://bhav-ecommerceapp.herokuapp.com/ecom/fetchCart",data)
         .then(res => { 
             dispatch(cartAdd(res.data));
         })
         .catch(error => console.log("Error in getting cart"));
         
-    axios.post("http://localhost:5000/ac/fetch",data)
+    axios.post("https://bhav-ecommerceapp.herokuapp.com/ecom/fetch",data)
         .then(res => { 
             dispatch(cartOrd(res.data));
         })

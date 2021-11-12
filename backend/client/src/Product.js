@@ -17,7 +17,7 @@ function Product({id,title,rating,cost,img}) {
     const history = useHistory();
 
     const getCart = () =>{
-        axios.post("http://localhost:5000/ac/fetchCart",userDet)
+        axios.post("https://bhav-ecommerceapp.herokuapp.com/ecom/fetchCart",userDet)
         .then(res => { 
             dispatch(cartAdd(res.data));
         }).catch(error => console.log("Error getting"));
@@ -31,7 +31,7 @@ function Product({id,title,rating,cost,img}) {
             item : [{id,title,rating,cost,img}],
             id : id,
         }
-        axios.post("http://localhost:5000/ac/addCart",od)
+        axios.post("https://bhav-ecommerceapp.herokuapp.com/ecom/addCart",od)
             .then(res => {
                 console.log(res.data);
                 getCart();
