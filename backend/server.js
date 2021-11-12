@@ -26,8 +26,8 @@ if(process.env.NODE_ENV === "production"){
 app.get('/*',function(req,res){
     res.sendFile(path.join(__dirname,"client/build/index.html"))
 })
-//app.use(createProxyMiddleware('/ac',{target:'https://bhav-ecommerceapp.herokuapp.com/ecom//'}));
-//const apiProxy = createProxyMiddleware('/',{target:'https://bhav-ecommerceapp.herokuapp.com/ecom//auth'});
+//app.use(createProxyMiddleware('/ac',{target:'https://bhav-ecommerceapp.herokuapp.com/ecom/'}));
+//const apiProxy = createProxyMiddleware('/',{target:'https://bhav-ecommerceapp.herokuapp.com/ecom/auth'});
 //app.use(apiProxy); 
  
 app.use('/ecom', addAcc); 
