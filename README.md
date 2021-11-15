@@ -20,3 +20,22 @@ Features:
 ☆ User friendly & fast
 
 ☆ Customer support using third party application
+
+
+To clone & run the project:
+
+1. Install Git VCS
+
+2. Open the installed git terminal in a folder
+ 
+3. Use the command- git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+
+4. Make sure that you install Node & suitable IDE in your computer
+
+5. Open the terminal -> use cd backend -> then cd client
+
+6. Run npm i (it installs the node modules)
+
+7. cd backend & npm run dev
+
+8. cd client & npm start
