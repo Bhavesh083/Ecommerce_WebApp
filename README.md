@@ -7,7 +7,6 @@ Tools & Technologies used :
 <br/>
 
 Features:
-
 <br/>
 
 ☆ Úser Authentication using MongoDB
@@ -27,11 +26,13 @@ Features:
 
 To clone & run the project:
 
+<br/>
+
 1. Install Git VCS
 
 2. Open the installed git terminal in a folder
  
-3. Use the command- git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+3. Use the command- git clone https://github.com/Bhavesh083/Ecommerce_WebApp.git
 
 4. Make sure that you install Node & suitable IDE in your computer
 
