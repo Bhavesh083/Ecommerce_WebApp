@@ -8,6 +8,7 @@ Tools & Technologies used :
 
 Features:
 <br/>
+
 ☆ Úser Authentication using MongoDB
 
 ☆ Cart Component
@@ -24,7 +25,6 @@ Features:
 <br/>
 
 To clone & run the project:
-
 <br/>
 
 1. Install Git VCS
