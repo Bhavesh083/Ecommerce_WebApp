@@ -22,6 +22,7 @@ Features:
 ☆ User friendly & fast
 
 ☆ Customer support using third party application
+
 <br/>
 
 To clone & run the project:
