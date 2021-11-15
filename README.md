@@ -8,7 +8,6 @@ Tools & Technologies used :
 
 Features:
 <br/>
-
 ☆ Úser Authentication using MongoDB
 
 ☆ Cart Component
@@ -22,7 +21,7 @@ Features:
 ☆ User friendly & fast
 
 ☆ Customer support using third party application
-
+<br/>
 
 To clone & run the project:
 
