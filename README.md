@@ -5,9 +5,15 @@ Tools & Technologies used :
 
 Features:
 ☆ Úser Authentication using MongoDB
+
 ☆ Cart Component
+
 ☆ Orders Component
+
 ☆ Search Functionality
+
 ☆ Fully Responsive
+
 ☆ User friendly & fast
+
 ☆ Customer support using third party application
