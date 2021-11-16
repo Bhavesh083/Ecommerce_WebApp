@@ -23,9 +23,9 @@ Features:
 
 ☆ Customer support using third party application
 
+<br/>
 
 To clone & run the project:
-
 <br/>
 
 1. Install Git VCS
