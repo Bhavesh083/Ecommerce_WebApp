@@ -44,7 +44,7 @@ function Header() {
     <div className='header'>
     <div className='lcheader'>  
       <Link onClick={()=>butPushup()} className='header-logo-link' to='/'>
-         <span className='mgr'>Kumar's</span>
+         <span className='mgr'>ShopE</span>
          <span className='mgr-icon'> <HeadsetMicIcon /></span>
       </Link>
       <div className='header-searchbar-sb'>

@@ -13,6 +13,7 @@ import SearchRes from './SearchRes';
 import Myorders from './Myorders';
 import Itemopen from './Itemopen';
 import { useDispatch, useSelector } from 'react-redux';
+import Banner from './Banner';
 
 function App() {
 
@@ -62,6 +63,11 @@ function App() {
                  <Header />
                  <Login />
                  <Footer />
+            </Route>
+            <Route path='/app'>
+                <Header />
+                <Banner />
+                <Footer />
             </Route>
             <Route path='/'>
                 <Header />
