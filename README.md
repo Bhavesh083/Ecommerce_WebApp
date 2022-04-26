@@ -6,6 +6,9 @@ Tools & Technologies used :
 
 <br/>
 
+Hosted Link : https://bhav-ecommerceapp.herokuapp.com/app
+<br/>
+
 Features:
 <br/>
 
