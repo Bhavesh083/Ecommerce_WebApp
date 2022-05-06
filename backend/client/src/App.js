@@ -12,6 +12,7 @@ import Signup from './Signup';
 import SearchRes from './SearchRes';
 import Myorders from './Myorders';
 import Itemopen from './Itemopen';
+import Payment from './Payment';
 import { useDispatch, useSelector } from 'react-redux';
 import Banner from './Banner';
 
@@ -27,6 +28,11 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
+            <Route path='/pay'>
+                <Header />
+                <Payment />
+                <Footer />
+            </Route>
             <Route path='/contact'>
                 <Header />
                 <Contact />

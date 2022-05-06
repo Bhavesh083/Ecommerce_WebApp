@@ -84,7 +84,7 @@ function Home() {
                 img='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoSfzdJlyscu8qE0jq8C_ao-q9UCz5D1srP-JmuPFrUKtSLZv5uVy1ZYq68uBL8FXHAuA&usqp=CAU' />
 
                  
-                <img className='home-banner3' src='https://www.getinthemix.com/c/images/16/0245486001524562491.jpg' />
+                <img className='home-banner3' src='https://github.com/Bhavesh083/TSF__Task1/blob/main/Banner3.jpg?raw=true' />
                 <img className='home-banner33' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ05tyY5DYOfVsLOQ-BSPNtpEmQ01ULW1CyHw&usqp=CAU'/>
 
 
