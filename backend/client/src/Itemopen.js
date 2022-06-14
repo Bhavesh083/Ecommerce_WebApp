@@ -6,6 +6,7 @@ import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import { useHistory } from 'react-router';
 import { Star } from '@material-ui/icons';
 import { cartAdd } from './actions/cartAction';
+import Reviews from './Reviews';
 
 function Itemopen() {
 
@@ -52,12 +53,13 @@ function Itemopen() {
     return (
         <div className='totalopenitembox' key={oi.id}>
             <div className='leftbackbutbox1' onClick={()=>backGo()}>
-                <button className='butkbsicon'><KeyboardBackspaceIcon className='kbsicon'/>Go Back</button>
+                <button className='butkbsicon'><KeyboardBackspaceIcon className='kbsicon'/></button>
             </div>
             <div className='leftopenitembdy'> 
                 <img src={oi.img} />
             </div>
             <div className='rightopenitembdy'>
+              <div className='rightopenitembdy-box'>  
                 <p className='roib-title'>{oi.title}</p>
                 <p className='last-roib-title'>{ Array(oi.rating)  
                        .fill()
@@ -68,6 +70,10 @@ function Itemopen() {
                 <span>₹{oi.cost}</span> 
                 <button onClick={()=>cartAdder()}>Add to Cart</button>
                 </div>
+              </div>
+              <div className='Review-open'>
+                <Reviews id={oi.id}/>
+              </div>
             </div>
         </div>
     )

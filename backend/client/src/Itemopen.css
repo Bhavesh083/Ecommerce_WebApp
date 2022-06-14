@@ -3,12 +3,13 @@
   width: 100%;
   height: 100%;
   min-height: 90vh;
+  max-height: 95vh;
   display: flex;
   flex-direction: row;
 }
 .leftbackbutbox1 {
-  background-color: rgb(228, 228, 228);
-  width: 10%;
+  background-color: rgb(255, 255, 255);
+  width: 5%;
 }
 .butkbsicon {
   width: 80%;
@@ -36,51 +37,68 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-left: 6px solid rgb(53, 97, 155);
+  border-right: 3px solid rgb(34, 94, 173);
 }
 .leftopenitembdy img {
   margin-top: -20px;
   width: 70%;
 }
 .rightopenitembdy {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
+  align-items: flex-start;
+  width: 55%;
+  max-height: 90vh;
   box-sizing: border-box;
-  border-left: 6px solid rgb(53, 97, 155);
   background-color: rgba(236, 236, 236, 0.692);
 }
+.rightopenitembdy-box {
+  width: 85%;
+}
+.Review-open {
+  margin: 7% 0% 0% 4%;
+  overflow: auto;
+  background-color: rgb(231, 231, 231);
+  max-height: 35%;
+  min-width: 70%;
+  max-width: 70%;
+  border-radius: 5px;
+  padding: 15px;
+  box-sizing: border-box;
+}
 .rightopenitembdy .roib-title {
-  font-size: 23px;
+  font-size: 21px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: 500;
   margin: 0px 0px 10px 30px;
 }
 .rightopenitembdy span {
-  font-size: 21px;
+  font-size: 18px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 500;
   margin: 10px 0px 0px 30px;
 }
 .last-roib-title {
-  font-size: 21px;
+  font-size: 0px;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   margin: 0px 0px 0px 30px;
   display: flex;
   flex-direction: row;
-  color: rgb(0, 106, 168);
+  color: rgb(79, 160, 211);
 }
 .rightopenitembdy button {
   cursor: pointer;
   border: 2px solid rgb(0, 134, 187);
   outline: none;
-  width: 150px;
+  width: 125px;
   padding: 7px 20px;
   font-weight: 600;
   margin: 10px 0px 0px 30px;
   background-color: rgb(255, 255, 255);
+  border-radius: 4px;
 }
 .fnl-lst-dwn-bx {
   display: flex;
