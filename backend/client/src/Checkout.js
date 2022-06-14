@@ -6,7 +6,6 @@ import './Checkout.css';
 import { cartAdd } from './actions/cartAction';
 import { useHistory } from "react-router-dom";
 import { cartEmpty } from './actions/cartAction';
-import { CardTravelRounded } from '@material-ui/icons';
 
 function Checkout() {
 

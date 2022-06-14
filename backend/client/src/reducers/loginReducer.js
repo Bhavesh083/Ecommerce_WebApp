@@ -7,10 +7,11 @@ const loginReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'Addlog':  
             return {
-                ...state,
+                ...state, 
                 user : {  
                     email : action.user.email,
-                    password : action.user.password
+                    password : action.user.password,
+                    name : action.user.name
                 }
             }
             break; 

@@ -67,6 +67,7 @@
   border-radius: 5px;
   padding: 15px;
   box-sizing: border-box;
+  margin-bottom: 20px;
 }
 .rightopenitembdy .roib-title {
   font-size: 21px;
@@ -135,14 +136,38 @@
     width: 60%;
   }
   .rightopenitembdy {
-    margin-top: 20px;
     width: 100%;
     background-color: white;
     border-left: 0px solid rgb(53, 97, 155);
+    align-items: center;
   }
 }
 @media screen and (max-height: 500px) {
   .totalopenitembox {
     min-height: 110vh;
+  }
+}
+@media screen and (max-width: 600px) and (max-height: 700px) {
+  .rightopenitembdy {
+    overflow: auto !important;
+  }
+  .Review-open {
+    margin: 1% 0% 1vh 0%;
+    overflow: auto;
+    background-color: rgb(231, 231, 231);
+    min-height: 17vh;
+    max-height: 17vh;
+    min-width: 95%;
+    max-width: 95%;
+  }
+  .rightopenitembdy-box {
+    overflow: auto;
+    min-height: 23vh;
+    max-height: 23vh;
+    width: 100%;
+  }
+  .fnl-lst-dwn-bx {
+    display: flex;
+    flex-direction: row;
   }
 }

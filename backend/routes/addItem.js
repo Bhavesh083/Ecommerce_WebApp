@@ -12,7 +12,19 @@ router.route('/fetchProduct').post((req, res) => {
     .then(item => {
       res.json(item.reviews)
     })
-    .catch(err => res.status(400).json('Error: yoyoyo ' + err));
+    .catch(err => res.status(400).json('Error: fetching products ' + err));
 });
+
+router.route('/addReview').post((req, res) => {
+  Items.findOne({id:req.body.id}) 
+    .then(item => {
+        item.reviews = [...req.body.reviews,...item.reviews];
+        item.save()
+            .then(() => res.json('reviews updated!'))
+            .catch(err => res.status(400).json('Error reviews backend ' + err));
+    })
+    .catch(err => res.status(400).json('Error: adding reviews backend  ' + err));
+});
+
 //"https://bhav-ecommerceapp.herokuapp.com/ecom/fetchCart"
 module.exports = router;

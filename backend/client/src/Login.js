@@ -38,11 +38,11 @@ function Login() {
   const onSubmit = (data) => {
     setUsr(data);
     loadData(data);
-    axios.post('https://bhav-ecommerceapp.herokuapp.com/ecom/auth',data).then(res => { 
-      if(res.data)
+    axios.post('http://localhost:5000/ecom/auth',data).then(res => { 
+      if(res.data!==null)
       {
         setUsed(false);
-        dispatch(logAdd(data.email,data.password)); 
+        dispatch(logAdd(data.email,data.password,res.data.name));
         dispatch(loginAdd(true));//true means logged in
       }
       else

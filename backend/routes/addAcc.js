@@ -4,13 +4,13 @@ let Accounts = require('../models/account.model');
 router.route('/auth').post((req,res) => {  
     Accounts.findOne({email:req.body.email,password:req.body.password}).then((acc) => {
         if(acc===null){
-          res.json(false);} 
+          res.json(null);} 
         else{
-          res.json(true)};
+          res.json(acc)};
       }).catch(err => res.status(400).json('Error: ' + err));
   });
 
-router.route('/del').delete((req, res) => {
+router.route('/del').delete((req, res) => { 
     Accounts.deleteMany({password:"ab"})     
       .then(acc => res.json("Deleted s"))
       .catch(err => res.status(400).json('Error: ' + err));
