@@ -38,7 +38,7 @@ function Login() {
   const onSubmit = (data) => {
     setUsr(data);
     loadData(data);
-    axios.post('http://localhost:5000/ecom/auth',data).then(res => { 
+    axios.post('https://bhav-ecommerceapp.herokuapp.com/ecom/auth',data).then(res => { 
       if(res.data!==null)
       {
         setUsed(false);
