@@ -16,6 +16,7 @@ import Reviews from './Reviews';
 import Payment from './Payment';
 import { useDispatch, useSelector } from 'react-redux';
 import Banner from './Banner';
+import items from "./ItemsTot";
 
 function App() {
 
@@ -25,6 +26,14 @@ function App() {
   
   const dispatch = useDispatch();
   
+  //useEffect(() => { 
+  //  items.map( data => {
+  //    axios.post("http://localhost:5000/item/sendReviewsToDB",data)
+  //      .then(res =>  console.log("Sent to db"))
+  //      .catch(err => console.log("Unable to process")); 
+  //  });
+  //},[]);
+
   return (
     <Router>
       <div className="App">

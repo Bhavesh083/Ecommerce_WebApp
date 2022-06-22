@@ -26,5 +26,21 @@ router.route('/addReview').post((req, res) => {
     .catch(err => res.status(400).json('Error: adding reviews backend  ' + err));
 });
 
+router.route('/sendReviewsToDB').post((req, res) => {
+  Items.findOne({id:req.body.id}).then((data) => {
+    if( data === null ){
+         const newRev = new Items({ 
+           id : req.body.id,
+           title : req.body.title,
+           cost : req.body.cost,
+           rating : req.body.rating, 
+           img : req.body.img,
+           reviews : []
+     });
+         newRev.save().then(() => res.json(true)).catch(err => res.status(400).json('Error: ' + err));}
+    else{
+       res.json(false);}}).catch(err => console.log('already found ' + err));
+});
+
 //"https://bhav-ecommerceapp.herokuapp.com/ecom/fetchCart"
 module.exports = router;

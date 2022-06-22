@@ -18,7 +18,7 @@ function Reviews({id}) {
     const obj = {
       id : id
     }
-    axios.post("http://localhost:5000/item/fetchProduct",obj)
+    axios.post("https://bhav-ecommerceapp.herokuapp.com/item/fetchProduct",obj)
         .then(res => {
           setReviews(res.data);
         })
@@ -40,7 +40,7 @@ const addPoint = () => {
         by : userDet.name
       }]
     }
-    axios.post("http://localhost:5000/item/addReview",obj)
+    axios.post("https://bhav-ecommerceapp.herokuapp.com/item/addReview",obj)
         .then(res => {
           setPhrase('');
           setReviews([...obj.reviews,...reviews]);
@@ -62,105 +62,6 @@ const addPoint = () => {
       <div>
         <p className="Review-header">Top reviews <i className="fas fa-thumbs-up"></i></p>
       </div>
-      {reviews.map(rev => (rev.points>3)?
-        <div className='Review-header-map' key={rev.id}>
-          <div className='point-review'>
-            <p>😍</p>
-            <span>{rev.review}</span>
-          </div>
-          <div className='point-by-cls'>
-            <span> <i className="fas fa-pen"></i> {rev.by}</span>
-          </div>
-        </div>:null
-      )}
-      {reviews.map(rev => (rev.points>0 && rev.points<4)?
-        <div className='Review-header-map' key={rev.id}>
-          <div className='point-review'>
-            <p>🙂</p>
-            <span>{rev.review}</span>
-          </div>
-          <div className='point-by-cls'>
-            <span> <i className="fas fa-pen"></i> {rev.by}</span>
-          </div>
-        </div>:null
-      )}
-      {reviews.map(rev => (rev.points<=0)?
-        <div className='Review-header-map' key={rev.id}>
-          <div className='point-review'>
-            <p>😒</p>
-            <span>{rev.review}</span>
-          </div>
-          <div className='point-by-cls'>
-            <span> <i className="fas fa-pen"></i> {rev.by}</span>
-          </div>
-        </div>:null
-      )}
-      {reviews.map(rev => (rev.points>3)?
-        <div className='Review-header-map' key={rev.id}>
-          <div className='point-review'>
-            <p>😍</p>
-            <span>{rev.review}</span>
-          </div>
-          <div className='point-by-cls'>
-            <span> <i className="fas fa-pen"></i> {rev.by}</span>
-          </div>
-        </div>:null
-      )}
-      {reviews.map(rev => (rev.points>0 && rev.points<4)?
-        <div className='Review-header-map' key={rev.id}>
-          <div className='point-review'>
-            <p>🙂</p>
-            <span>{rev.review}</span>
-          </div>
-          <div className='point-by-cls'>
-            <span> <i className="fas fa-pen"></i> {rev.by}</span>
-          </div>
-        </div>:null
-      )}
-      {reviews.map(rev => (rev.points<=0)?
-        <div className='Review-header-map' key={rev.id}>
-          <div className='point-review'>
-            <p>😒</p>
-            <span>{rev.review}</span>
-          </div>
-          <div className='point-by-cls'>
-            <span> <i className="fas fa-pen"></i> {rev.by}</span>
-          </div>
-        </div>:null
-      )}
-      {reviews.map(rev => (rev.points>3)?
-        <div className='Review-header-map' key={rev.id}>
-          <div className='point-review'>
-            <p>😍</p>
-            <span>{rev.review}</span>
-          </div>
-          <div className='point-by-cls'>
-            <span> <i className="fas fa-pen"></i> {rev.by}</span>
-          </div>
-        </div>:null
-      )}
-      {reviews.map(rev => (rev.points>0 && rev.points<4)?
-        <div className='Review-header-map' key={rev.id}>
-          <div className='point-review'>
-            <p>🙂</p>
-            <span>{rev.review}</span>
-          </div>
-          <div className='point-by-cls'>
-            <span> <i className="fas fa-pen"></i> {rev.by}</span>
-          </div>
-        </div>:null
-      )}
-      {reviews.map(rev => (rev.points<=0)?
-        <div className='Review-header-map' key={rev.id}>
-          <div className='point-review'>
-            <p>😒</p>
-            <span>{rev.review}</span>
-          </div>
-          <div className='point-by-cls'>
-            <span> <i className="fas fa-pen"></i> {rev.by}</span>
-          </div>
-        </div>:null
-      )}
       {reviews.map(rev => (rev.points>3)?
         <div className='Review-header-map' key={rev.id}>
           <div className='point-review'>
