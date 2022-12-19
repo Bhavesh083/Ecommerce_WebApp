@@ -30,7 +30,7 @@ function Signup() {
     setCpeye(!cpeye);
   }  
   const onSubmit = (data) => {
-    axios.post('https://bhav-ecommerceapp.herokuapp.com/ecom/add',data).then(res => { 
+    axios.post('http://localhost:5000/ecom/add',data).then(res => { 
       if(res.data)
       {
         setUsed(false);

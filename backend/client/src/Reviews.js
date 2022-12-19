@@ -18,7 +18,7 @@ function Reviews({id}) {
     const obj = {
       id : id
     }
-    axios.post("https://bhav-ecommerceapp.herokuapp.com/item/fetchProduct",obj)
+    axios.post("http://localhost:5000/item/fetchProduct",obj)
         .then(res => {
           setReviews(res.data);
         })
@@ -40,7 +40,7 @@ const addPoint = () => {
         by : userDet.name
       }]
     }
-    axios.post("https://bhav-ecommerceapp.herokuapp.com/item/addReview",obj)
+    axios.post("http://localhost:5000/item/addReview",obj)
         .then(res => {
           setPhrase('');
           setReviews([...obj.reviews,...reviews]);

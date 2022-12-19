@@ -21,7 +21,7 @@ function Checkout() {
 
     useEffect(() => { 
         if(si){
-        axios.post("https://bhav-ecommerceapp.herokuapp.com/ecom/fetchCart",userDet)
+        axios.post("http://localhost:5000/ecom/fetchCart",userDet)
             .then(res => { 
                 dispatch(cartAdd(res.data));
             })

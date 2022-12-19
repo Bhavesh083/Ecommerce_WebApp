@@ -19,7 +19,7 @@ function Myorders() {
 
     useEffect(() => { 
         if(si){
-        axios.post("https://bhav-ecommerceapp.herokuapp.com/ecom/fetch",userDet)
+        axios.post("http://localhost:5000/ecom/fetch",userDet)
             .then(res => { 
                 dispatch(cartOrd(res.data));
             })

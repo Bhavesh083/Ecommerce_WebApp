@@ -16,16 +16,16 @@ mongoose.connect("mongodb+srv://bhavesh:passwordecom01@ecommerceacc.ilmxs.mongod
 const addAcc = require('./routes/addAcc'); 
 const addItem = require('./routes/addItem'); 
 
-if(process.env.NODE_ENV === "production"){ 
+/*if(process.env.NODE_ENV === "production"){ 
     app.use(express.static("client/build"));
     app.get('/*',function(req,res){
         res.sendFile(path.join(__dirname,"client/build/index.html"))
     })
-} 
+}*/
   
 app.use('/ecom', addAcc); 
-app.use('/item', addItem);
+app.use('/item', addItem); 
 
 app.listen(PORT, () => {
-    console.log();
+    console.log(); 
 });  

@@ -42,5 +42,5 @@ router.route('/sendReviewsToDB').post((req, res) => {
        res.json(false);}}).catch(err => console.log('already found ' + err));
 });
 
-//"https://bhav-ecommerceapp.herokuapp.com/ecom/fetchCart"
+//"http://localhost:5000/ecom/fetchCart"
 module.exports = router;

@@ -17,6 +17,7 @@ import Payment from './Payment';
 import { useDispatch, useSelector } from 'react-redux';
 import Banner from './Banner';
 import items from "./ItemsTot";
+import Voice from './Voice';
 
 function App() {
 
@@ -37,65 +38,45 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Header />
         <Switch>
             <Route path='/review'>
-                <Header />
                 <Reviews />
-                <Footer />
             </Route>
             <Route path='/pay'>
-                <Header />
                 <Payment />
-                <Footer />
             </Route>
             <Route path='/contact'>
-                <Header />
                 <Contact />
-                <Footer />
             </Route>
             <Route path='/myorders'>
-                <Header />
                 <Myorders /> 
-                <Footer />    
             </Route>
          {op.cost ? 
             <Route path='/openitem'>
-                <Header />
                 <Itemopen /> 
-                <Footer />
             </Route>:''}
             <Route path='/checkout'>
-                <Header />
                 <Checkout />
-                <Footer />
             </Route>
             <Route path='/searchres'>
-                <Header />
                 <SearchRes />
-                <Footer />
             </Route>
           {si?"":
             <Route path='/signup' >
-                 <Header />
                  <Signup />
-                 <Footer />
             </Route>}
             <Route path='/login' >
-                 <Header />
                  <Login />
-                 <Footer />
             </Route>
             <Route path='/app'>
-                <Header />
                 <Banner />
-                <Footer />
             </Route>
             <Route path='/'>
-                <Header />
-                <Home />
-                <Footer />
+                <Voice />
             </Route>
         </Switch>
+        <Footer /> 
       </div>
     </Router>
   );
