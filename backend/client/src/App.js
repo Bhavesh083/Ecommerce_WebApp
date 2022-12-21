@@ -73,7 +73,7 @@ function App() {
                 <Banner />
             </Route>
             <Route path='/'>
-                <Voice />
+                <Home />
             </Route>
         </Switch>
         <Footer /> 

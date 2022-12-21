@@ -15,6 +15,7 @@ import { useSelector } from 'react-redux';
 import { cartAdd } from './actions/cartAction';
 import { useDispatch } from 'react-redux';
 import { search } from './actions/searchAction';
+import Voice from './Voice';
 
 function Header() {
 
@@ -41,6 +42,8 @@ function Header() {
   } 
 
   return (
+  <div>
+    <Voice className='header-voice' />
     <div className='header'>
     <div className='lcheader'>  
       <Link onClick={()=>butPushup()} className='header-logo-link' to='/'>
@@ -97,6 +100,7 @@ function Header() {
           </Link>
       </div>
     </div> 
+  </div>
   )
 }
 

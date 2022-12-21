@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-import HeadsetMicIcon from '@material-ui/icons/HeadsetMic';
 import './Voice.css';
 import { useHistory } from 'react-router';
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
@@ -35,12 +34,12 @@ function Voice() {
     },
   ];
 
-  const { transcript, resetTranscript } = useSpeechRecognition({commands});
+  const {transcript, resetTranscript } = useSpeechRecognition({commands});
   const [isListening, setIsListening] = useState(false);
   const microphoneRef = useRef(null);
+  
   const handleListing = () => {
     setIsListening(true);
-    console.log("Listening");
     microphoneRef.current.classList.add("listening");
     SpeechRecognition.startListening({
       continuous: true,
@@ -48,9 +47,7 @@ function Voice() {
   };
 
   const stopHandle = () => {
-    console.log(transcript);
     setIsListening(false);
-    console.log("stop listening");
     microphoneRef.current.classList.remove("listening");
     SpeechRecognition.stopListening();
   };
@@ -60,22 +57,38 @@ function Voice() {
     resetTranscript();
   };
 
+  const onAndOff = () => {
+    if(isListening) 
+        stopHandle();
+    else 
+        handleListing();
+  }
+
   return (
-    <div className="microphone-wrapper">
-      <div className="mircophone-container">
-        <div className="microphone-icon-container" ref={microphoneRef} onClick={handleListing} >
-          <span className='mgr-icon'> <HeadsetMicIcon /></span>
+      <div onClick={onAndOff} data={transcript} className="mic-main-box" ref={microphoneRef} >
+        <div >
+           <span className={`material-symbols-outlined mic-box ${isListening ? `mic-on` : `mic-off`}`}>
+               {isListening ? "mic" : "mic_off"}
+           </span>
         </div>
-        <div className="microphone-status">
-          {isListening ? "Listening........." : "Click to start Listening"}
-        </div>
-        {isListening && (
-          <button className="microphone-stop btn" onClick={stopHandle}>
-            Stop
-          </button>
-        )}
       </div>
-      {transcript && (
+  )
+}
+
+export default Voice;
+
+/*
+<div className="microphone-status">
+    {isListening ? "Listening........." : "Click to start Listening"}
+</div>
+
+{isListening && (
+    <button className="microphone-stop btn" onClick={stopHandle}>
+      Stop
+    </button>
+)}
+        
+{transcript && (
         <div className="microphone-result-container">
           <div className="microphone-result-text">{transcript}</div>
           <button className="microphone-reset btn" onClick={handleReset}>
@@ -83,8 +96,4 @@ function Voice() {
           </button>
         </div>
       )}
-    </div>
-  )
-}
-
-export default Voice;
+*/
