@@ -21,7 +21,7 @@
 }
 
 .mic-main-box.listening::before {
-  content: attr(data);
+  content: "";
   width: 50px;
   height: 50px;
   background-color: #00ff1559;

@@ -1,16 +1,60 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Voice.css';
 import { useHistory } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { search } from './actions/searchAction';
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
-
+ 
 function Voice() {
+
   const history = useHistory();
+  const dispatch = useDispatch();
+
   const commands = [
+    {
+      command: "search * items",
+      callback: (item) => {
+        console.log(item);
+        dispatch(search(item));
+        history.push("/searchres");
+      }
+    },
     {
       command: "open *",
       callback: (website) => {
         console.log(website);
-        history.push("/"+website);
+        switch (website) {
+          case "contacts":
+            history.push("/contact");
+            break;
+          case "login":
+            history.push("/login");
+            break;
+          case "sign in":
+            history.push("/login");
+            break;
+          case "account":
+            history.push("/login");
+            break;
+          case "car":
+            history.push("/checkout");
+            break;
+          case "cart":
+            history.push("/checkout");
+            break;
+          case "card":
+            history.push("/checkout");
+            break;
+          case "order":
+            history.push("/myorders");
+            break;
+          case "orders":
+            history.push("/myorders");
+            break;
+          default:
+            history.push("/"+website);
+            break;
+        }
       },
     },
     {
@@ -24,21 +68,16 @@ function Voice() {
       callback: () => {
         handleReset();
       },
-    },
-    ,
-    {
-      command: "reset background colour",
-      callback: () => {
-        document.body.style.background = `rgba(0, 0, 0, 0.8)`;
-      },
-    },
+    }
   ];
 
   const {transcript, resetTranscript } = useSpeechRecognition({commands});
   const [isListening, setIsListening] = useState(false);
   const microphoneRef = useRef(null);
   
+
   const handleListing = () => {
+    console.log("listening");
     setIsListening(true);
     microphoneRef.current.classList.add("listening");
     SpeechRecognition.startListening({
@@ -47,6 +86,8 @@ function Voice() {
   };
 
   const stopHandle = () => {
+    console.log("off");
+    console.log(transcript);
     setIsListening(false);
     microphoneRef.current.classList.remove("listening");
     SpeechRecognition.stopListening();
@@ -58,6 +99,7 @@ function Voice() {
   };
 
   const onAndOff = () => {
+    new Audio('http://commondatastorage.googleapis.com/codeskulptor-assets/week7-brrring.m4a').play();
     if(isListening) 
         stopHandle();
     else 
@@ -65,7 +107,7 @@ function Voice() {
   }
 
   return (
-      <div onClick={onAndOff} data={transcript} className="mic-main-box" ref={microphoneRef} >
+      <div onClick={onAndOff} className="mic-main-box" ref={microphoneRef} >
         <div >
            <span className={`material-symbols-outlined mic-box ${isListening ? `mic-on` : `mic-off`}`}>
                {isListening ? "mic" : "mic_off"}
