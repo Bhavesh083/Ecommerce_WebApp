@@ -74,7 +74,6 @@ function Voice() {
   const {transcript, resetTranscript } = useSpeechRecognition({commands});
   const [isListening, setIsListening] = useState(false);
   const microphoneRef = useRef(null);
-  
 
   const handleListing = () => {
     console.log("listening");

@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React,{useEffect,useState} from 'react';
-import './Reviews.css';
 import {useSelector} from 'react-redux';
+import './Reviews.css';
+
 import Sentiment from 'sentiment';
 const sentiment = new Sentiment();
 

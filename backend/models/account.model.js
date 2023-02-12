@@ -22,5 +22,4 @@ const addAccSchema = new Schema({
 });
 
 const Accounts = mongoose.model('Accounts', addAccSchema);
-
 module.exports = Accounts; 

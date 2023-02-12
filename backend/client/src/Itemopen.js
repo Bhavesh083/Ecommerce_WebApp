@@ -45,7 +45,7 @@ function Itemopen() {
         .catch(error => console.log("Error pushing orders"));
         }
         else{
-        alert("Dear user 😀, \nPlease login to add the item to the cart");
+        alert("Dear user😀, \nPlease login to add the item to the cart");
     }
     } 
 
