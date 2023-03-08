@@ -2,12 +2,15 @@ import axios from 'axios';
 import React,{useEffect,useState} from 'react';
 import {useSelector} from 'react-redux';
 import './Reviews.css';
-
 import Sentiment from 'sentiment';
+
+//call notebook & run with in-built node package manager
 const sentiment = new Sentiment();
 
 function Reviews({id}) {
-
+  function get_Point(score){if(score<1){return -1;}
+    else if(score>3){return 1;} else return 0;
+  }
   const userDet = useSelector(state => state.loginReducer.user); 
   const signin = useSelector(state => state.loginReducer.notlogin);
 
@@ -33,11 +36,12 @@ function Reviews({id}) {
 
 const addPoint = () => {
   if(signin){
+    var p_points = get_Point(sentimentScore.score);
     const obj = {
       id : id,
       reviews : [{
         review : phrase,
-        points : sentimentScore.score,
+        points : p_points,
         by : userDet.name
       }]
     }
@@ -65,7 +69,7 @@ const addPoint = () => {
         <div>
           <p className="Review-header">Top reviews <i className="fas fa-thumbs-up"></i></p>
         </div>
-        {reviews.map(rev => (rev.points>3)?
+        {reviews.map(rev => (rev.points>0)?
           <div className='Review-header-map' key={rev.id}>
             <div className='point-review'>
               <p>😍</p>
@@ -76,7 +80,7 @@ const addPoint = () => {
             </div>
           </div>:null
         )}
-        {reviews.map(rev => (rev.points>0 && rev.points<4)?
+        {reviews.map(rev => (rev.points==0)?
           <div className='Review-header-map' key={rev.id}>
             <div className='point-review'>
               <p>🙂</p>
@@ -87,7 +91,7 @@ const addPoint = () => {
             </div>
           </div>:null
         )}
-        {reviews.map(rev => (rev.points<=0)?
+        {reviews.map(rev => (rev.points<0)?
           <div className='Review-header-map' key={rev.id}>
             <div className='point-review'>
               <p>😒</p>

@@ -46,9 +46,9 @@ function App() {
             <Route path='/pay'>
                 <Payment />
             </Route>
-            <Route path='/contact'>
+            {/*<Route path='/contact'>
                 <Contact />
-            </Route>
+              </Route>*/}
             <Route path='/myorders'>
                 <Myorders /> 
             </Route>
