@@ -35,7 +35,7 @@ function Checkout() {
             password : userDet.password,
             cart : [...cart]
         }
-        axios.post("https://bhav-ecommerceapp.herokuapp.com/ecom/addOrders",od)
+        axios.post("http://localhost:5000/ecom/addOrders",od)
         .then(res => {
             console.log(res.data);
         })
