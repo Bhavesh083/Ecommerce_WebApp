@@ -23,7 +23,7 @@ const addItem = require('./routes/addItem');
     })
 }*/
   
-app.use('/ecom', addAcc); 
+app.use('/ecom', addAcc);  
 app.use('/item', addItem); 
 
 app.listen(PORT, () => {
